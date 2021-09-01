@@ -70,5 +70,9 @@
       <Name>MovieRater.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MovieServices\" />
+    <Folder Include="TVShowServices\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
