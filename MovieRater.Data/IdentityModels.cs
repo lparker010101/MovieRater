@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using MovieRater.Data;
 //using static MovieRater.Data.IdentityUserLoginConfiguration;
 
-namespace MovieRater.WebAPI.Models
+namespace MovieRater.Data
 {
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {
