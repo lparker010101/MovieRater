@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieRater.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,12 @@ namespace MovieRater.Services.MovieServices
         {
             _id = id; // takes in an id of type Guid and sets it = to our _id to be used 
         }
+
+        /*
+        public async Task<bool> Post(MovieCreate movie)
+        {
+
+        }
+        */
     }
 }
