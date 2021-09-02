@@ -13,26 +13,26 @@ namespace MovieRater.WebAPI.Controllers
 {
     public class TvShowController : ApiController
     {
-        private TvShowService CreateTvShowService()
+        private TVShowService CreateTvShowService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var tvShowService = new TvShowService(userId);
+            var tvShowService = new TVShowService(userId);
             return tvShowService;
         }
 
-        public async Task<IHttpActionResult> Put(TvShowEdit tvShow, int editTvShowId)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //public async Task<IHttpActionResult> Put(TvShowEdit tvShow, int editTvShowId)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            var service = CreateTvShowService();
-            if (await service.Put(tvShow, editTvShowId))
-            {
-                return Ok();
-            }
-            return InternalServerError();
-        }
+        //    var service = CreateTvShowService();
+        //    if (await service.Put(tvShow, editTvShowId))
+        //    {
+        //        return Ok();
+        //    }
+        //    return InternalServerError();
+        //}
     }
 }

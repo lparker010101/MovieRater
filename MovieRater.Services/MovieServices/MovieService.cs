@@ -1,8 +1,8 @@
 ﻿using MovieRater.Data;
 using MovieRater.Models.MovieModels;
-using MovieRater.WebAPI.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,18 +16,16 @@ namespace MovieRater.Services.MovieServices
         public MovieService(Guid id)
         {
             _id = id; // takes in an id of type Guid and sets it = to our _id to be used 
-            _Id = id;
         }
-
+        
         public async Task<IEnumerable<MovieListItem>> Get()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
+                var query = 
                     await
                     ctx
                     .Movies
-                    .Where(d => d.Id == _id)
                     .Select(d => new MovieListItem
                     {
                         Id = d.Id,
@@ -79,6 +77,6 @@ namespace MovieRater.Services.MovieServices
                 return await ctx.SaveChangesAsync() > 1;
             }
         }
-        */
+        
     }
 }
