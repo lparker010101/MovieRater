@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+//using Microsoft.AspNetCore.Identity;
 using MovieRater.Data;
-using static MovieRater.WebAPI.Models.IdentityUserLoginConfiguration;
+using static MovieRater.Data.IdentityUserLoginConfiguration;
 
-namespace MovieRater.WebAPI.Models
+namespace MovieRater.Data
 {
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {
