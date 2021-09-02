@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MovieModels\MovieDetail.cs" />
+    <Compile Include="MovieModels\MovieListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TVShowModels\TVShowDetail.cs" />
   </ItemGroup>
@@ -68,6 +70,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="TVShowModels\" />
     <Folder Include="MovieModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
