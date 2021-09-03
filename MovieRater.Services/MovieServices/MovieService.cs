@@ -15,4 +15,6 @@ namespace MovieRater.Services.MovieServices
             _id = id; // takes in an id of type Guid and sets it = to our _id to be used 
         }
     }
+
+
 }
