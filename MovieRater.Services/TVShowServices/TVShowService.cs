@@ -1,4 +1,4 @@
-﻿using MovieRater.WebAPI.Models;
+﻿using MovieRater.Models.TVShowModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -19,7 +19,6 @@ namespace MovieRater.Services.TVShowServices
             _id = id;
         }
     }
-
 }
 
   
