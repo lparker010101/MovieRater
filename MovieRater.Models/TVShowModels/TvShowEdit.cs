@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieRater.Models.MovieModels
+namespace MovieRater.Models.TVShowModels
 {
-    public class MovieListItem
+    public class TvShowEdit
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -17,5 +17,6 @@ namespace MovieRater.Models.MovieModels
         public string Description { get; set; }
         public string MainCharacters { get; set; }
         public List<string> PlacesToWatch { get; set; } = new List<string>();
+        public int Seasons { get; set; }
     }
 }

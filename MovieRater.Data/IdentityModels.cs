@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 //using Microsoft.AspNetCore.Identity;
 using MovieRater.Data;
-using static MovieRater.Data.IdentityUserLoginConfiguration;
+//using static MovieRater.Data.IdentityUserLoginConfiguration;
 
 namespace MovieRater.Data
 {
@@ -18,12 +18,13 @@ namespace MovieRater.Data
         {
             HasKey(iul => iul.UserId);
         }
-        public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+       
+    }
+    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    {
+        public IdentityUserRoleConfiguration()
         {
-            public IdentityUserRoleConfiguration()
-            {
-                HasKey(iur => iur.UserId);
-            }
+            HasKey(iur => iur.UserId);
         }
     }
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.

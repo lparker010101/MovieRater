@@ -19,6 +19,22 @@ namespace MovieRater.WebAPI.Controllers
             var movieService = new MovieService(userId);
             return movieService;
         }
+
+        public async Task<IHttpActionResult> Put(MovieEdit movie, int editMovieId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var service = CreateMovieService();
+            if (await service.Put(movie, editMovieId))
+            {
+                return Ok();
+            }
+            return InternalServerError();
+        }
+
         public async Task<IHttpActionResult> Post(MovieCreate movie)
         {
             if (!ModelState.IsValid)
@@ -27,7 +43,7 @@ namespace MovieRater.WebAPI.Controllers
             }
 
             var service = CreateMovieService();
-            if (await service.Post(movie))
+            if (await service.Post(movie, editMovieId))
             {
                 return Ok();
             }
@@ -35,4 +51,4 @@ namespace MovieRater.WebAPI.Controllers
         }
 
     }
-}
+    }
