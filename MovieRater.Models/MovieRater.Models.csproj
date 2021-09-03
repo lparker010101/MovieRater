@@ -52,10 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MovieModels\MovieCreate.cs" />
+    <Compile Include="MovieModels\MovieDetail.cs" />
     <Compile Include="MovieModels\MovieEdit.cs" />
     <Compile Include="MovieModels\MovieListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TVShowModels\TvShowEdit.cs" />
+    <Compile Include="TVShowModels\EditTVShow.cs" />
+    <Compile Include="TVShowModels\TVShowDetail.cs" />
+    <Compile Include="TVShowModels\TVShowListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
