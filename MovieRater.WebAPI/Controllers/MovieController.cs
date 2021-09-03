@@ -43,7 +43,7 @@ namespace MovieRater.WebAPI.Controllers
             }
 
             var service = CreateMovieService();
-            if (await service.Post(movie, editMovieId))
+            if (await service.Post(movie))
             {
                 return Ok();
             }
@@ -51,4 +51,4 @@ namespace MovieRater.WebAPI.Controllers
         }
 
     }
-    }
+}
