@@ -34,7 +34,21 @@ namespace MovieRater.WebAPI.Controllers
             }
             return InternalServerError();
         }
-    }
 
-    //
+        public async Task<IHttpActionResult> Post(MovieCreate movie)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var service = CreateMovieService();
+            if (await service.Post(movie))
+            {
+                return Ok();
+            }
+            return InternalServerError();
+        }
+
+    }
 }
