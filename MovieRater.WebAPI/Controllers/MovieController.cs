@@ -35,4 +35,6 @@ namespace MovieRater.WebAPI.Controllers
             return InternalServerError();
         }
     }
+
+    //
 }
