@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieRater.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -161,6 +162,16 @@ namespace MovieRater.Services.TVShowServices
                 return query;
             }
         }
+
+        public async Task<bool> Delete(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                TVShow tvShow = await ctx.TVShows.FindAsync(id);
+                if (tvShow is null)
+                {
+                    return false;
+                }
 
         public async Task<TVShowDetail> GetTVShowById(int id)
         {

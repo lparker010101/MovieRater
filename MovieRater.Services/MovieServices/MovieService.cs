@@ -17,12 +17,12 @@ namespace MovieRater.Services.MovieServices
         {
             _id = id; // takes in an id of type Guid and sets it = to our _id to be used 
         }
-        
+
         public async Task<IEnumerable<MovieListItem>> Get()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = 
+                var query =
                     await
                     ctx
                     .Movies
@@ -37,14 +37,36 @@ namespace MovieRater.Services.MovieServices
                 return query;
             }
         }
+        public async Task<bool> Post(MovieCreate movie)
+        {
+            Movie entity = new Movie
+            {
+                Title = movie.Title,
+                ReleaseDate = movie.ReleaseDate,
+                ParentalGuidance = movie.ParentalGuidance,
+                Genre = movie.Genre,
+                Rating = movie.Rating,
+                Description = movie.Description,
+                MainCharacters = movie.MainCharacters,
+                PlacesToWatch = movie.PlacesToWatch
+            };
 
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Movies.Add(entity);
+                return await ctx.SaveChangesAsync() > 1;
+            }
+        }
         public async Task<bool> Put(MovieEdit movie, int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var oldMovieData = await ctx.Movies.FindAsync(id);
                 if (oldMovieData is null)
-        {
+                {
+
+
+
                     return false;
                 }
 
@@ -61,8 +83,8 @@ namespace MovieRater.Services.MovieServices
                 return await ctx.SaveChangesAsync() > 0;
             }
 
-
         }
+
 
         public async Task<bool> Delete(int id)
         {
@@ -77,8 +99,9 @@ namespace MovieRater.Services.MovieServices
                 return await ctx.SaveChangesAsync() > 1;
             }
         }
-        
+
     }
 
 
 }
+
