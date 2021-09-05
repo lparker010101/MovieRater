@@ -60,8 +60,6 @@ namespace MovieRater.Services.MovieServices
 
                 return await ctx.SaveChangesAsync() > 0;
             }
-
-
         }
 
         public async Task<bool> Delete(int id)

@@ -57,6 +57,7 @@
     <Compile Include="MovieModels\MovieListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TVShowModels\EditTVShow.cs" />
+    <Compile Include="TVShowModels\TVShowCreate.cs" />
     <Compile Include="TVShowModels\TVShowDetail.cs" />
     <Compile Include="TVShowModels\TVShowListItem.cs" />
   </ItemGroup>
@@ -70,9 +71,6 @@
       <Name>MovieRater.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MovieModels\" />
-    <Folder Include="TVShowModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
