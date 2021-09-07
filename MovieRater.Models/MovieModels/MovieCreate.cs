@@ -9,14 +9,19 @@ namespace MovieRater.Models.MovieModels
 {
     public class MovieCreate
     {
-        
+        [Key]
+        public int Id { get; set; }
+
         [Required]
+        [Display(Name = "Movie Title")]
         public string Title { get; set; }
 
         [Required]
+        [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
         [Required]
+        [Display(Name = "Parental Guidance")]
         public string ParentalGuidance { get; set; }
 
         [Required]
@@ -26,14 +31,13 @@ namespace MovieRater.Models.MovieModels
         public double Rating { get; set; }
 
         [Required]
-        [MaxLength(5000)]
         public string Description { get; set; }
 
         [Required]
+        [Display(Name = "Main Character")]
         public string MainCharacters { get; set; }
 
-        [Required]
-        public List<string> PlacesToWatch { get; set; } = new List<string>();
-
+        //[Required]
+        //public List<string> PlacesToWatch { get; set; } = new List<string>();
     }
 }

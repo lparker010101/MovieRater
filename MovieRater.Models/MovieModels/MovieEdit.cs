@@ -16,6 +16,5 @@ namespace MovieRater.Models.MovieModels
         public double Rating { get; set; }
         public string Description { get; set; }
         public string MainCharacters { get; set; }
-        public List<string> PlacesToWatch { get; set; } = new List<string>();
     }
 }

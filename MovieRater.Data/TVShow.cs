@@ -9,7 +9,6 @@ namespace MovieRater.Data
 {
     public class TVShow
     {
-        // This is a test.  
         [Key]
         public int Id { get; set; }
 
@@ -37,6 +36,5 @@ namespace MovieRater.Data
         [Required]
         public List<string> PlacesToWatch { get; set; } = new List<string>();
         public int Seasons { get; set; }
-
     }
 }

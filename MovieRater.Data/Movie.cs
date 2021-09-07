@@ -4,7 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// <summary>
+/// ////////Cuurent Project
+/// </summary>
 namespace MovieRater.Data
 {
     public class Movie
@@ -13,12 +15,15 @@ namespace MovieRater.Data
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Movie Title")]
         public string Title { get; set; }
 
         [Required]
+        [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
         [Required]
+        [Display(Name = "Parental Guidance")]
         public string ParentalGuidance { get; set; }
 
         [Required]
@@ -31,9 +36,10 @@ namespace MovieRater.Data
         public string Description { get; set; }
 
         [Required]
+        [Display(Name = "Main Character")]
         public string MainCharacters { get; set; }
 
-        [Required]
-        public List<string> PlacesToWatch { get; set; } = new List<string>();
+        //[Required]
+        //public List<string> PlacesToWatch { get; set; } = new List<string>();
     }
 }

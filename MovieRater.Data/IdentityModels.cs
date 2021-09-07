@@ -6,27 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
-//using Microsoft.AspNetCore.Identity;
-using MovieRater.Data;
-//using static MovieRater.Data.IdentityUserLoginConfiguration;
 
 namespace MovieRater.Data
 {
-    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
-    {
-        public IdentityUserLoginConfiguration()
-        {
-            HasKey(iul => iul.UserId);
-        }
-       
-    }
-    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
-    {
-        public IdentityUserRoleConfiguration()
-        {
-            HasKey(iur => iur.UserId);
-        }
-    }
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
@@ -41,15 +23,18 @@ namespace MovieRater.Data
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-         public ApplicationDbContext()
+        public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
+        public static ApplicationDbContext Create()
+        {
+            return new ApplicationDbContext();
+        }
+
         public DbSet<Movie> Movies { get; set; }
         public DbSet<TVShow> TVShows { get; set; }
-
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
@@ -61,9 +46,22 @@ namespace MovieRater.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
-        public static ApplicationDbContext Create()
+    }
+
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    {
+        public IdentityUserLoginConfiguration()
         {
-            return new ApplicationDbContext();
+            HasKey(iul => iul.UserId);
         }
     }
+
+    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    {
+        public IdentityUserRoleConfiguration()
+        {
+            HasKey(iur => iur.UserId);
+        }
+    }
+
 }
