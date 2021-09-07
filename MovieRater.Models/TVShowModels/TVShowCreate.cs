@@ -11,18 +11,25 @@ namespace MovieRater.Models.TVShowModels
     {
         [Required]
         public string Title { get; set; }
+
         [Required]
-        public int ReleaseDate { get; set; }
+        public DateTime ReleaseDate { get; set; }
+
         [Required]
         public string ParentalGuidance { get; set; }
+
         [Required]
         public string Genre { get; set; }
+
         [Required]
         public double Rating { get; set; }
+
         [Required]
         public string Description { get; set; }
+
         [Required]
         public string MainCharacters { get; set; }
+
         [Required]
         public string PlacesToWatch { get; set; }
         public int Seasons { get; set; }

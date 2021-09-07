@@ -150,6 +150,10 @@
     <Compile Include="Migrations\202109030155168_IntialMigration.Designer.cs">
       <DependentUpon>202109030155168_IntialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109050121295_TVShow.cs" />
+    <Compile Include="Migrations\202109050121295_TVShow.Designer.cs">
+      <DependentUpon>202109050121295_TVShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,6 +166,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202109030155168_IntialMigration.resx">
       <DependentUpon>202109030155168_IntialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109050121295_TVShow.resx">
+      <DependentUpon>202109050121295_TVShow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

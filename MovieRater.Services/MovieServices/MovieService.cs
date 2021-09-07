@@ -57,8 +57,19 @@ namespace MovieRater.Services.MovieServices
                 return query;
             }
         }
-
-        //Put/Update Movie
+        public async Task<bool> Post(MovieCreate movie)
+        {
+            Movie entity = new Movie
+            {
+                Title = movie.Title,
+                ReleaseDate = movie.ReleaseDate,
+                ParentalGuidance = movie.ParentalGuidance,
+                Genre = movie.Genre,
+                Rating = movie.Rating,
+                Description = movie.Description,
+                MainCharacters = movie.MainCharacters,
+                PlacesToWatch = movie.PlacesToWatch
+            };
 
         public async Task<bool> Put(MovieEdit movie, int id)
         {
@@ -80,9 +91,8 @@ namespace MovieRater.Services.MovieServices
 
                 return await ctx.SaveChangesAsync() > 0;
             }
-
-
         }
+
 
         // Post Movie
         public async Task<bool> Post(MovieCreate movie)
@@ -104,6 +114,8 @@ namespace MovieRater.Services.MovieServices
                 return await ctx.SaveChangesAsync() > 0;
             }
         }
+        
     }
 
 }
+

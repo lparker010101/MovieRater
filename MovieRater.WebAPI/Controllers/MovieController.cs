@@ -66,12 +66,19 @@ namespace MovieRater.WebAPI.Controllers
 
         }
 
-        [HttpGet]
-        public async Task<IHttpActionResult> GetAllMovies()
+        public async Task<IHttpActionResult> Post(MovieCreate movie)
         {
-            MovieService movieServices = CreateMovieService();
-            var movie = await movieServices.GetMovies();
-            return Ok(movie);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var service = CreateMovieService();
+            if (await service.Post(movie))
+            {
+                return Ok();
+            }
+            return InternalServerError();
         }
 
     }
