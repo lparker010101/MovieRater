@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MovieRater.Data
 {
+
     public class Movie
     {
         [Key]
