@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace MovieRater.WebAPI.Controllers
 {
+    [Authorize]
     public class MovieController : ApiController
     {
         private MovieService CreateMovieService()
@@ -20,7 +21,8 @@ namespace MovieRater.WebAPI.Controllers
             return movieService;
         }
 
-        public async Task<IHttpActionResult> Put(MovieEdit movie, int editMovieId)
+        [HttpPost]
+        public async Task<IHttpActionResult> Post(MovieCreate movie)
         {
             if (!ModelState.IsValid)
             {
@@ -28,13 +30,49 @@ namespace MovieRater.WebAPI.Controllers
             }
 
             var service = CreateMovieService();
-            if (await service.Put(movie, editMovieId))
+            if (await service.Post(movie))
             {
                 return Ok();
             }
             return InternalServerError();
         }
-    }
 
-    //
+        [HttpPut]
+        public async Task<IHttpActionResult> Put(MovieEdit movie, int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var service = CreateMovieService();
+            if (await service.Put(movie, id))
+            {
+                return Ok();
+            }
+            return InternalServerError();
+        }
+
+        [HttpDelete]
+        public async Task<IHttpActionResult> Delete(int id)
+        {
+            var service = CreateMovieService();
+            if (await service.Delete(id))
+            {
+                return Ok();
+            }
+
+            return InternalServerError();
+
+        }
+
+        [HttpGet]
+        public async Task<IHttpActionResult> GetAllMovies()
+        {
+            MovieService movieServices = CreateMovieService();
+            var movie = await movieServices.GetMovies();
+            return Ok(movie);
+        }
+
+    }
 }
