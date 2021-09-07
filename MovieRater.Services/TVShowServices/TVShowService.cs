@@ -11,10 +11,13 @@ namespace MovieRater.Services.TVShowServices
 {
     public class TVShowService
     {
-        private readonly Guid _Id;
+        // Get
+        // Post
+        private readonly Guid _id;
+
         public TVShowService(Guid id)
         {
-            _Id = id;
+            _id = id;
         }
 
         public async Task<bool> CreateTVShow(TVShowCreate model)
@@ -77,6 +80,7 @@ namespace MovieRater.Services.TVShowServices
                 };
             }
         }
+
         public async Task<bool> Delete(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -86,13 +90,24 @@ namespace MovieRater.Services.TVShowServices
                 {
                     return false;
                 }
+
                 ctx.TVShows.Remove(tvShow);
-                return await ctx.SaveChangesAsync()==1;
+                return await ctx.SaveChangesAsync() == 1;
             }
         }
     }
 }
+                    
 
+        
 
+        
 
+         
+                   
+            
+
+       
+
+  
 
