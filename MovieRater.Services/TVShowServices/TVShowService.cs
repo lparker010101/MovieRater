@@ -1,5 +1,4 @@
-﻿using MovieRater.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -145,23 +144,9 @@ namespace MovieRater.Services.TVShowServices
 
         public async Task<IEnumerable<TVShowListItem>> GetTVShows()
         {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    await
-                    ctx
-                    .TVShows
-                    .Select(c => new TVShowListItem
-                    {
-                        Id = c.Id,
-                        Title = c.Title,
-                        ReleaseDate = c.ReleaseDate,
-                        Genre = c.Genre,
-                        Description = c.Description,
-                    }).ToListAsync();
-                return query;
-            }
+            _id = id;
         }
+    }
 
         public async Task<bool> Delete(int id)
         {

@@ -5,13 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieRater.Data
+namespace MovieRater.Models.TVShowModels
 {
-    public class TVShow
+    public class TVShowCreate
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         public string Title { get; set; }
 
@@ -36,6 +33,5 @@ namespace MovieRater.Data
         [Required]
         public string PlacesToWatch { get; set; }
         public int Seasons { get; set; }
-
     }
 }

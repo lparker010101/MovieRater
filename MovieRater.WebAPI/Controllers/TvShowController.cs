@@ -2,6 +2,7 @@
 using MovieRater.Models.TVShowModels;
 using MovieRater.Services.TVShowServices;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -16,23 +17,41 @@ namespace MovieRater.WebAPI.Controllers
         private TVShowService CreateTvShowService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var tvShowService = new TVShowService(userId);
-            return tvShowService;
+            var tvs = new TVShowService(userId);
+            return tvs;
         }
 
-        //public async Task<IHttpActionResult> Put(TvShowEdit tvShow, int editTvShowId)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [HttpPost]
+        public async Task<IHttpActionResult> TVShow(TVShowCreate tvshow)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var service = CreateTvShowService();
-        //    if (await service.Put(tvShow, editTvShowId))
-        //    {
-        //        return Ok();
-        //    }
-        //    return InternalServerError();
-        //}
+            var service = CreateTvShowService();
+            if (await service.CreateTVShow(tvshow))
+            {
+                return InternalServerError();
+            }
+            return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IHttpActionResult> GetAllTVShows()
+        {
+            TVShowService tvShowServices = CreateTvShowService();
+            var tvShow = await tvShowServices.GetTVShows();
+            return Ok(tvShow);
+        }
+
+        // GET TVShow By Id (Required)
+        [HttpGet]
+        public async Task<IHttpActionResult> GetTVShowById(int id)
+        {
+            TVShowService tvShowServices = CreateTvShowService();
+            var tvShow = await tvShowServices.GetTVShowById(id);
+            return Ok(tvShow);
+        }
     }
 }

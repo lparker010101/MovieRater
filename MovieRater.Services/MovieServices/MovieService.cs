@@ -82,7 +82,6 @@ namespace MovieRater.Services.MovieServices
 
                 return await ctx.SaveChangesAsync() > 0;
             }
-
         }
 
 

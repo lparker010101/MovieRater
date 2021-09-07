@@ -13,5 +13,6 @@ namespace MovieRater.Models.TVShowModels
         public DateTime ReleaseDate { get; set; }
         public string Genre { get; set; }
         public string Description { get; set; }
+        public string PlacesToWatch { get; set; }
     }
 }
